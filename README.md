@@ -5,7 +5,7 @@ This challenge can be developed with C# (using .NET 8), Java (version 21), Golan
 
 ## Submission Of Challenge
 To submit a challenge, a pull request from a forked repository should be created against this repository. It should:
-- Implement requirements below
+- Implement requirements below.
 - Ensure test coverage exists for API request handlers and logic functions.
 - Pass all Github Action checks triggered by `pull_request`.
 
