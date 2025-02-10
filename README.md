@@ -9,6 +9,8 @@ To submit a challenge, a pull request from a forked repository should be created
   - You should try and build this application with best practices in mind; using constants where possible and implementing architectural patterns that make sense.
 - Ensure test coverage exists for API request handlers and logic functions.
 - Pass all Github Action checks triggered by `pull_request`.
+  - Unit tests pass.
+  - Postman API tests pass.
 
 ## Learning Objectives
 - Use Copilot effectively for code generation.
