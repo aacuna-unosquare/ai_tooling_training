@@ -13,7 +13,8 @@ To submit a challenge, a pull request from a forked repository should be created
 ## Learning Objectives
 - Use Copilot effectively for code generation.
 - Use prompts to guide Copilot’s suggestions.
-- Use Copilot to generate tests and improve code.
+- Use Copilot to generate tests, and improve code coverage.
+- Use Copilot to explain code and offer suggestions.
 - Understand Copilot’s context awareness with multi-file projects.
 
 ## Before You Start
@@ -41,31 +42,64 @@ Below are the high level requirements for the Hangman Game API:
    - **Description:** Creates a new Hangman game.
    - **Response:**
      - 201 Created:
-       - `gameId`: Unique identifier for the game.
-       - `maskedWord`: The word to guess with letters masked (e.g., "____").
+       - `gameId` - `Guid`: Unique identifier for the game.
+       - `maskedWord` - `String`: The word to guess with letters masked (e.g., "____").
+       - `attemptsRemaining` - `Integer`: Number of attempts left.
+       - example:
+       ```
+        {
+            "gameId": "100011ae-3402-4ccb-ac18-f07713f67970",
+            "maskedWord": "______",
+            "attemptsRemaining": 5 
+        }
+       ```
 
-2. **Process Letter Guess**
+2. **Process Game Letter Guess**
    - **Endpoint:** `PUT /games/<game_id>`
    - **Description:** Processes a guess for a specific game.
    - **Request Body:**
-     - `letter`: The letter being guessed.
+     - `letter` - `String`: The letter being guessed.
+     - example:
+     ```
+      {
+            "letter": "a"
+      }
+     ```
    - **Response:**
      - 200 OK:
-       - `updated_word`: The word with correctly guessed letters revealed.
-       - `attempts_remaining`: Number of attempts left.
-       - `status`: Current status of the game (e.g., "In Progress", "Won", "Lost").
+       - `maskedWord` - `String`: The word with correctly guessed letters revealed.
+       - `attemptsRemaining` - `Integer`: Number of attempts left.
+       - `status` - `String`: Current status of the game (e.g., "In Progress", "Won", "Lost").
+       - example:
+       ```
+        {
+            "maskedWord": "_a_a_a",
+            "attemptsRemaining": 3,
+            "guesses": ["e", "f", "a"]
+            "status": "In Progress"
+        }
+       ```
      - 400 Bad Request:
        - `error`: Error message indicating invalid input.
+       - example:
+       ```
+        {
+            "message": "Cannot process guess",
+            "errors": [{
+                "field": "letter",
+                "message": "Letter cannot accept more than 1 character"
+            }]
+        }
+       ```
 
 3. **Check Game Status**
    - **Endpoint:** `GET /games/<game_id>`
    - **Description:** Retrieves the current state of a specific game.
    - **Response:**
      - 200 OK:
-        - `gameId`: Unique identifier for the game.
-        - `maskedWord`: The word to guess with letters masked.
-        - `attemptsRemaining`: Number of attempts left.
-        - `guesses`: The letters that have been guessed so far.
+        - `maskedWord` - `String`: The word to guess with letters masked.
+        - `attemptsRemaining` - `Integer`: Number of attempts left.
+        - `guesses` - : The letters that have been guessed so far.
         - `status`: Current status of the game (e.g., "In Progress", "Won", "Lost").
     - 404 Not Found
 
@@ -77,6 +111,7 @@ Below are the high level requirements for the Hangman Game API:
      - 404 Not Found
 
 ### Game Flow
+This represents an example flow for a game in terms of APIs called and expected behaviour:
 
 ```mermaid
 graph TD;
