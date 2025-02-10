@@ -1,6 +1,6 @@
-# Javascript Hangman API 
+# Typescript Hangman AI Challenge
 
-This partial implementation uses the following technologies:
+This project implements a Hangman game using the following technologies:
 
 - Node version 22
 - Node Package Manager (included with Node)
@@ -15,27 +15,22 @@ Skip the installer sections if you already have the following installed:
 
 ### Manual Installation on macOS & Windows
 
-1. Install Node
-
-To install Node 22 on Windows or macOS, follow these steps:
-
+1. **Install Node 22**
 - Visit the Node website at https://nodejs.org/en/download.
 - Ensure the LTS (long-term support) tab is selected.
 - Click on the installer relevant to your computer (pkg for macOS, msi for Windows).
 - Follow the installation wizard with the default settings.
 
-2. Verify the installation
-
+2. **Verify Installation**
 - Open a terminal/command line.
 - Type `node -v`.
   - You should see `v22.X.X`.
 
 ### Package Installation
-
-You can also install Node using a package manager:
+You can also install Node 22 using a package manager:
 - Chocolatey: Windows
 - Homebrew: macOS
-- Various package managers for Linux: https://nodejs.org/en/download/package-manager
+- [Linux Installation](https://nodejs.org/en/download/package-manager)
 
 This approach can be more complex if issues arise and requires more terminal/command line experience. If using WSL on Windows, you can use Linux package managers depending on the distribution installed on WSL.
 
