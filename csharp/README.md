@@ -1,45 +1,41 @@
 # C# Hangman AI Challenge
 
-Within this implementation the technologies used are:
+This project implements a Hangman game using the following technologies:
 
 - C#
 - .NET 8
 - [ASP.NET Core](https://github.com/dotnet/aspnetcore)
-- [XUnit](https://xunit.net/) 
+- [XUnit](https://xunit.net/)
 - [NSubstitute](https://nsubstitute.github.io/help/getting-started/)
 
-## How to: Run Application
+## How to: Run the Application
 
-- Please skip Installer sections if you already have the following installed:
-  - .NET 8
+### Prerequisites
+Ensure you have the following installed:
+- .NET 8
 
-### Manual Installation macOS & Windows
+### Manual Installation on macOS & Windows
 
-1. Install .NET
+1. **Install .NET 8**
 
-To install .NET 8 on Windows or macOS, follow these steps:
+   - Visit the [dotnet website](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
+   - Download the SDK installer relevant to your computer.
+   - Follow the installation wizard with the default settings.
 
-- Visit the dotnet website at https://dotnet.microsoft.com/en-us/download/dotnet/6.0.
+2. **Verify Installation**
 
-- Click on the SDK installer that is relevant for your computer. A download should begin with the installer.
-
-- Follow the installation wizard with the default settings selected.
-
-2. Verify installation
-
-- Open a terminal/command line
-
-- type `dotnet --version`
-  - You should see `8.0.x` or similar appear.
+   - Open a terminal/command line.
+   - Type `dotnet --version`.
+   - You should see `8.0.x` or similar.
 
 ### Package Installation
-Installation can also be completed using a package manager.
+
+You can also install .NET 8 using a package manager:
 - Chocolatey: Windows
 - Homebrew: macOS
-- https://learn.microsoft.com/en-us/dotnet/core/install/linux?WT.mc_id=dotnet-35129-website: linux
+- [Linux Installation Guide](https://learn.microsoft.com/en-us/dotnet/core/install/linux?WT.mc_id=dotnet-35129-website)
 
-
-## Running the dotnet Application
+## Running the Application
 
 To run the service using the .NET runtime, follow these steps:
 
