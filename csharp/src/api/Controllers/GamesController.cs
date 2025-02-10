@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using api.Models;
+using api.ViewModels;
 using api.Utils;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +9,9 @@ namespace api.Controllers;
 [Route("[controller]")]
 public partial class GamesController(IIdentifierGenerator identifierGenerator) : ControllerBase
 {
-    private readonly string[] _words = ["Banana", "Canine", "Unosquare", "Airport"];
+    private static readonly Dictionary<Guid, GameViewModel> Games = new();
+    private readonly string[] _words = ["banana", "canine", "unosquare", "airport"];
 
-    private static readonly Dictionary<Guid, Game> Games = new ();
-    
     [GeneratedRegex(@"[a-zA-Z0-9_]")]
     private static partial Regex GuessRegex();
 
@@ -21,8 +20,8 @@ public partial class GamesController(IIdentifierGenerator identifierGenerator) :
     {
         var newGameWord = RetrieveWord();
         var newGameId = identifierGenerator.RetrieveIdentifier();
-        
-        Games.Add(newGameId, new Game
+
+        Games.Add(newGameId, new GameViewModel
         {
             RemainingGuesses = 3,
             UnmaskedWord = newGameWord,
@@ -35,34 +34,34 @@ public partial class GamesController(IIdentifierGenerator identifierGenerator) :
     }
 
     [HttpGet("{gameId:guid}")]
-    public ActionResult<Game> GetGame([FromRoute] Guid gameId)
+    public ActionResult<GameViewModel> GetGame([FromRoute] Guid gameId)
     {
         var game = RetrieveGame(gameId);
-        
         return Ok(game);
     }
-    
-    [HttpPut("{gameId:guid}")]
-    public ActionResult<Game> MakeGuess([FromRoute] Guid gameId, [FromBody] Guess guess)
-    {
-        var game =  RetrieveGame(gameId);
-        if (game == null) return NotFound();
 
-        if (string.IsNullOrWhiteSpace(guess.Letter) || guess.Letter.Length != 1)
+    [HttpPut("{gameId:guid}")]
+    public ActionResult<GameViewModel> MakeGuess([FromRoute] Guid gameId, [FromBody] GuessViewModel guessViewModel)
+    {
+        if (string.IsNullOrWhiteSpace(guessViewModel.Letter) || guessViewModel.Letter?.Length != 1)
         {
-            return BadRequest(new ResponseError
+            return BadRequest(new ResponseErrorViewModel
             {
                 Message = "Guess must be supplied with 1 letter"
             });
         }
         
+        var game = RetrieveGame(gameId);
         return Ok(game);
     }
 
-    private static Game? RetrieveGame(Guid gameId) => Games.GetValueOrDefault(gameId);
-    
-    private string RetrieveWord() {
-        var rand = new Random();
-        return _words[rand.Next(1, _words.Length - 1)];
+    private static GameViewModel? RetrieveGame(Guid gameId)
+    {
+        return Games.GetValueOrDefault(gameId);
+    }
+
+    private string RetrieveWord()
+    {
+        return _words[new Random().Next(3, _words.Length - 1)];
     }
 }

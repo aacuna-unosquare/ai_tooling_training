@@ -69,6 +69,7 @@ Below are the high level requirements for the Hangman Game API:
      - 200 OK:
        - `maskedWord` - `String`: The word with correctly guessed letters revealed.
        - `attemptsRemaining` - `Integer`: Number of attempts left.
+       - `guesses` `String[]` - : The letters that have been guessed so far.
        - `status` - `String`: Current status of the game (e.g., "In Progress", "Won", "Lost").
        - example:
        ```
@@ -97,10 +98,19 @@ Below are the high level requirements for the Hangman Game API:
    - **Description:** Retrieves the current state of a specific game.
    - **Response:**
      - 200 OK:
-        - `maskedWord` - `String`: The word to guess with letters masked.
-        - `attemptsRemaining` - `Integer`: Number of attempts left.
-        - `guesses` - : The letters that have been guessed so far.
-        - `status`: Current status of the game (e.g., "In Progress", "Won", "Lost").
+       - `maskedWord` - `String`: The word with correctly guessed letters revealed.
+       - `attemptsRemaining` - `Integer`: Number of attempts left.
+       - `guesses` `String[]` - : The letters that have been guessed so far.
+       - `status` - `String`: Current status of the game (e.g., "In Progress", "Won", "Lost").
+       - example:
+       ```
+        {
+            "maskedWord": "_a_a_a",
+            "attemptsRemaining": 3,
+            "guesses": ["e", "f", "a"]
+            "status": "In Progress"
+        }
+       ```
     - 404 Not Found
 
 4. **Clear Game**
@@ -111,7 +121,7 @@ Below are the high level requirements for the Hangman Game API:
      - 404 Not Found
 
 ### Game Flow
-This represents an example flow for a game in terms of APIs called and expected behaviour:
+This represents an example flow for a game in terms of APIs called and expected behaviour: 
 
 ```mermaid
 graph TD;
@@ -157,6 +167,15 @@ Platform specific runtimes and README guides can be found within the repository 
 For this exercise we recommend using [Postman](https://www.postman.com/downloads/?utm_source=postman-home) for making the requests above. 
 
 NOTE: If interested additional tutorials for postman general usage and additionally around using `Postbot` to build API Tests, guidance can be found [here](https://learning.postman.com/)
+
+## Suggestions
+In additional to the requirements, in order to demonstrate additional value with Copilot, there are some additional suggestions to try below:
+- Retrieve words from an external API, for example: https://random-word-api.herokuapp.com/word?lang=en 
+  - We can also specify different languages: `lang=en|es|it|de|fe|zh|pt-be`
+- Build out a robust, reusable validation approach.
+- Use constants for game state.
+- Implement an architectural pattern; for example Layered architecture for business logic, retrievals from memory and external sources.
+- Implement mocking with a library for unit tests.
 
 ## Further Reading
 In additional to this exercise, there are some great resouces for additional content:
