@@ -171,7 +171,7 @@ NOTE: If interested additional tutorials for postman general usage and additiona
 ## Suggestions
 In additional to the requirements, in order to demonstrate additional value with Copilot, there are some additional suggestions to try below:
 - Retrieve words from an external API, for example: https://random-word-api.herokuapp.com/word?lang=en 
-  - We can also specify different languages: `lang=en|es|it|de|fe|zh|pt-be`
+  - We can also specify different languages (`lang=en|es|it|de|fe|zh|pt-be`) to extend the approach. This would involve updating the create game request body.
 - Build out a robust, reusable validation approach.
 - Use constants for game state.
 - Implement an architectural pattern; for example Layered architecture for business logic, retrievals from memory and external sources.
