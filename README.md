@@ -44,7 +44,7 @@ Below are the high level requirements for the Hangman Game API:
      - 201 Created:
        - `gameId` - `Guid`: Unique identifier for the game.
        - `maskedWord` - `String`: The word to guess with letters masked (e.g., "____").
-       - `attemptsRemaining` - `Integer`: Number of attempts left.
+       - `attemptsRemaining` - `Integer`: Number of attempts left, should be 5 by default.
        - example:
        ```
         {

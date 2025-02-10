@@ -47,7 +47,7 @@ public partial class GamesController(IIdentifierGenerator identifierGenerator) :
         {
             return BadRequest(new ResponseErrorViewModel
             {
-                Message = "Guess must be supplied with 1 letter"
+                Message = "Letter cannot accept more than 1 character"
             });
         }
         
