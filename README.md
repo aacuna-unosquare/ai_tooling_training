@@ -180,5 +180,15 @@ In additional to the requirements, in order to demonstrate additional value with
 ## Further Reading
 In additional to this exercise, there are some great resouces for additional content:
 - [Copilot VsCode Cheat Sheet](https://code.visualstudio.com/docs/copilot/copilot-vscode-features)
+- [Github Copilot Best Practices](https://docs.github.com/en/copilot/using-github-copilot/best-practices-for-using-github-copilot)
+- [Prompt Engineering Github Guide](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 - [Microsoft Learning Path](https://learn.microsoft.com/en-us/training/paths/copilot/)
 - [Open AI Prompt Engineering Best Practices](https://platform.openai.com/docs/guides/prompt-engineering)
+
+It is also recommded to get comfortable with the commands like `/fix`, `/explain`, `@workspace` etc.
+
+## Final Notes
+
+Github Copilot is *NOT* a silver bullet for all scenarios and certainly doesn't replace the critical thinking and context that a developer will possess. There are areas where it excels, particularly with boilerplate and pure functions; but additionally it can easily generate some hullicinations if prompts aren't clear or there is a lot of context to a problem.
+
+The take away should be that copilot is a tool that massively help with code completion, translations, ideation, boilerplate etc; but you can very easily end up taking more time on a fairly straightforward problem and everything it generates still needs reviewed and adapted. It should be treated as a copilot, not an autopilot.
