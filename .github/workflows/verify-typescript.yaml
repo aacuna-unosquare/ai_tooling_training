@@ -1,6 +1,7 @@
 name: Verify Typescript Unit Tests
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - "typescript/**"

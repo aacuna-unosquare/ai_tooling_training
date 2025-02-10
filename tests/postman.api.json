@@ -187,7 +187,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Valid Guess\", function () {",
+							"pm.test(\"Delete Valid Game\", function () {",
 							"    pm.response.to.have.status(204);",
 							"});"
 						],
@@ -221,7 +221,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Valid Guess\", function () {",
+							"pm.test(\"Delete Invalid Game\", function () {",
 							"    pm.response.to.have.status(404);",
 							"});"
 						],
